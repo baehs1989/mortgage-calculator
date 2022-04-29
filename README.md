@@ -9,7 +9,7 @@ The widget can be placed at any location within the HTML document. All you have 
 ```
 <header>
     ...
-    <link href="./main.css" rel="stylesheet">
+    <link href="./zuvafetest-main.css" rel="stylesheet">
     ...
 </header>
 
@@ -20,14 +20,14 @@ The widget can be placed at any location within the HTML document. All you have 
     
     ...
 
-    <script defer="defer" src="./main.js"></script>
+    <script defer="defer" src="./zuvafetest-main.js"></script>
 </body>
 ```
 
 ```
 <header>
     ...
-    <link href="./main.css" rel="stylesheet">
+    <link href="./zuvafetest-main.css" rel="stylesheet">
     ...
 </header>
 
@@ -50,7 +50,7 @@ The widget can be placed at any location within the HTML document. All you have 
 
     ...
 
-    <script defer="defer" src="./main.js"></script>
+    <script defer="defer" src="./zuvafetest-main.js"></script>
 </body>
 ```
 
@@ -64,7 +64,8 @@ The App supports the latest, stable release of all browsers. You won't need to p
 In the project directory, you can run:
 
 ### `npm start`
-Runs the widget in the development mode.\
+Runs the widget in the development mode.
+You will find `package_window.json` and `package_mac.json` in the root directory. Before running either `npm ci` or `npm install`, please choose one file and rename it as `package.json`.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ### `npm test`
@@ -74,7 +75,7 @@ Launches the test runner in the interactive watch mode.
 Launches the test runner with test coverage in the interactive watch mode.
 
 ### `npm run build`
-Builds the standalone app for production to the `build` folder.\
+Builds the standalone app for production to the `build` folder.
 
 ### `npm run widget-build`
-Builds the required js/css files which requires for embedding the app as a widget for production. You will require to extract `/static/css/main.css` and `/static/js/main.js` from `build` folder.
+Builds the required js/css files which requires for embedding the app as a widget for production. You will require to extract `/static/css/zuvafetest-main.css` and `/static/js/zuvafetest-main.js` from `build` folder.

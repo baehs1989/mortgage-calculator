@@ -21,8 +21,8 @@
     "ctest": "npm test -- --coverage --watchAll",
     "eject": "react-scripts eject",
     "build-rename": "npm run build-rename-js && npm run build-rename-css",
-    "build-rename-js": "renamer --find '/main\\.[^\\.]+\\.js/' --replace 'main.js' build/static/js/*.js",
-    "build-rename-css": "renamer --find '/main\\.[^\\.]+\\.css/' --replace 'main.css' build/static/css/*.css"
+    "build-rename-js": "renamer --find \"/main\\.[^\\.]+\\.js/\" --replace \"zuvafetest-main.js\" build/static/js/*.js",
+    "build-rename-css": "renamer --find \"/main\\.[^\\.]+\\.css/\" --replace \"zuvafetestmain.css\" build/static/css/*.css"
   },
   "eslintConfig": {
     "extends": [
@@ -34,12 +34,12 @@
     "production": [
       ">0.2%",
       "not dead",
-      "ie >= 9"
+      "ie 11"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      ">0.2%",
+      "not dead",
+      "ie 11"
     ]
   },
   "devDependencies": {
