@@ -79,3 +79,7 @@ Builds the standalone app for production to the `build` folder.
 
 ### `npm run widget-build`
 Builds the required js/css files which requires for embedding the app as a widget for production. You will require to extract `/static/css/zuvafetest-main.css` and `/static/js/zuvafetest-main.js` from `build` folder.
+
+## TODO
+- Fix a bug related to running the app locally on IE
+- Unit tests for custom hooks

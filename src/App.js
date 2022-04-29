@@ -37,6 +37,8 @@ const AMORTIZATION_PERIOD = [
 
 const INITIAL_DOWN_PERCENTAGE = 20;
 
+const CURRENCY = "$";
+
 const initialState = {
   disabled: true,
   askingPrice: 0,
@@ -98,24 +100,21 @@ function App() {
 
   useEffect(() => {
     if (!data.disabled) {
-      let mortgage_required =
+      const mortgage_required =
         data.askingPrice - (data.askingPrice * data.downPercentage) / 100;
-      setMortgageRequired(mortgage_required);
-      var principal = mortgage_required;
-      var termOfLoan = data.amortization_period.value;
-      var annualInterestRate = data.mortgageRate;
-      var percentageRate = annualInterestRate / 1200;
-      var lengthOfLoan = 12 * termOfLoan;
-      var monthlyPayment =
+      const principal = mortgage_required;
+      const termOfLoan = data.amortization_period.value;
+      const annualInterestRate = data.mortgageRate;
+      const percentageRate = annualInterestRate / 1200;
+      const lengthOfLoan = 12 * termOfLoan;
+      const monthlyPayment =
         (principal * percentageRate) /
         (1 - Math.pow(1 + percentageRate, lengthOfLoan * -1));
+
+      setMortgageRequired(mortgage_required);
       setMonthlyPayment(monthlyPayment);
     }
   }, [data]);
-
-  // const handleFieldUpdate = (field, value) => {
-  //   dispatch({ type: field, value });
-  // };
 
   const handleFieldUpdate = useCallback((field, value) => {
     dispatch({ type: field, value });
@@ -139,7 +138,7 @@ function App() {
                 }
                 decimals={0}
                 min={0}
-                prefix="$"
+                prefix={CURRENCY}
               />
             </div>
             <div className={styles.Justify_Center}>
@@ -183,7 +182,7 @@ function App() {
                   decimals={2}
                   min={0}
                   max={100}
-                  postfix=" %"
+                  postfix="%"
                 />
               </div>
               <div className={styles.Color2}>
@@ -195,7 +194,7 @@ function App() {
                   }
                   min={0}
                   max={data.askingPrice}
-                  prefix="$"
+                  prefix={CURRENCY}
                 />
               </div>
             </div>
@@ -225,7 +224,7 @@ function App() {
               data-testid="app_mortgage_required"
               className={styles.Justify_Center}
             >
-              <b>${numberWithCommas(mortgageRequired.toFixed(0))}</b>
+              <b>{CURRENCY}{numberWithCommas(mortgageRequired.toFixed(0))}</b>
             </div>
           </div>
 
@@ -253,7 +252,7 @@ function App() {
                 decimals={2}
                 min={0}
                 max={100}
-                postfix=" %"
+                postfix="%"
               />
             </div>
           </div>
@@ -272,7 +271,7 @@ function App() {
               data-testid="app_mortgage_payment"
               className={styles.Justify_Center}
             >
-              <b>${numberWithCommas(montlyPayment.toFixed(0))}</b>
+              <b>{CURRENCY}{numberWithCommas(montlyPayment.toFixed(0))}</b>
             </div>
           </div>
         </div>

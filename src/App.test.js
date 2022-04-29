@@ -61,11 +61,11 @@ describe("Rendering App Component", ()=>{
             const mortgage_rate = within(app.mortage_rate_section).getByTestId("component_inputs_textinput")
             const mortgage_payment = within(app.mortgage_payment_section).getByTestId("app_mortgage_payment")
 
-            expect(down_payment_percentage.value).toBe("20.00 %")
+            expect(down_payment_percentage.value).toBe("20.00%")
             expect(down_payment.value).toBe("$110,000")
             expect(mortgage_required).toHaveTextContent("$440,000")
             expect(amortization_period.value).toBe("25")
-            expect(mortgage_rate.value).toBe("2.00 %")
+            expect(mortgage_rate.value).toBe("2.00%")
             expect(mortgage_payment).toHaveTextContent("$1,865")  
 
             //update asking_price value
@@ -85,28 +85,28 @@ describe("Rendering App Component", ()=>{
             fireEvent.blur(input_asking_price)
 
             //update down payment %
-            fireEvent.change(down_payment_percentage, {target:{value:'10 %'}})
+            fireEvent.change(down_payment_percentage, {target:{value:'10%'}})
             fireEvent.blur(down_payment_percentage)
             expect(down_payment.value).toBe("$40,000")
             expect(mortgage_required).toHaveTextContent("$360,000")
             expect(mortgage_payment).toHaveTextContent("$1,526")
 
             //down payment % cannot exeed 100 % or below 0 %
-            fireEvent.change(down_payment_percentage, {target:{value:'110 %'}})
+            fireEvent.change(down_payment_percentage, {target:{value:'110%'}})
             fireEvent.blur(down_payment_percentage)
-            expect(down_payment_percentage.value).toBe('100.00 %');
+            expect(down_payment_percentage.value).toBe('100.00%');
 
-            fireEvent.change(down_payment_percentage, {target:{value:'-10 %'}})
+            fireEvent.change(down_payment_percentage, {target:{value:'-10%'}})
             fireEvent.blur(down_payment_percentage)
-            expect(down_payment_percentage.value).toBe('0.00 %');
+            expect(down_payment_percentage.value).toBe('0.00%');
 
-            fireEvent.change(down_payment_percentage, {target:{value:'10 %'}})
+            fireEvent.change(down_payment_percentage, {target:{value:'10%'}})
             fireEvent.blur(down_payment_percentage)
 
             //update down payment amount
             fireEvent.change(down_payment, {target:{value:'30000'}})
             fireEvent.blur(down_payment)
-            expect(down_payment_percentage.value).toBe("7.50 %")
+            expect(down_payment_percentage.value).toBe("7.50%")
             expect(mortgage_required).toHaveTextContent("$370,000")
             expect(mortgage_payment).toHaveTextContent("$1,568") 
 
@@ -114,7 +114,7 @@ describe("Rendering App Component", ()=>{
             fireEvent.change(down_payment, {target:{value:'500000'}})
             fireEvent.blur(down_payment)
 
-            expect(down_payment_percentage.value).toBe("100.00 %")
+            expect(down_payment_percentage.value).toBe("100.00%")
             expect(mortgage_required).toHaveTextContent("$0")
             expect(mortgage_payment).toHaveTextContent("$0") 
 
@@ -133,11 +133,11 @@ describe("Rendering App Component", ()=>{
             //mortgage rate cannot exeed 100 or below 0
             fireEvent.change(mortgage_rate, {target:{value:'120'}})
             fireEvent.blur(mortgage_rate)
-            expect(mortgage_rate.value).toBe("100.00 %")
+            expect(mortgage_rate.value).toBe("100.00%")
 
             fireEvent.change(mortgage_rate, {target:{value:'-20'}})
             fireEvent.blur(mortgage_rate)
-            expect(mortgage_rate.value).toBe("0.00 %")
+            expect(mortgage_rate.value).toBe("0.00%")
 
         })
     })
