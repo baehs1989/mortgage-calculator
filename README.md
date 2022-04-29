@@ -82,4 +82,3 @@ Builds the required js/css files which requires for embedding the app as a widge
 
 ## TODO
 - Fix a bug related to running the app locally on IE
-- Unit tests for custom hooks

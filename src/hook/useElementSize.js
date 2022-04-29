@@ -1,4 +1,3 @@
-/*istanbul ignore file */
 import { useState, useEffect} from "react";
 
 import {debounce} from '../util'
@@ -19,8 +18,8 @@ const useElementSize = (elementRef) => {
       setSize(size);
     };
 
+    resizeEvent();
     const debouncedFunction = debounce(resizeEvent, 200);
-    debouncedFunction();
     window.addEventListener("resize", debouncedFunction);
 
     return () => {
