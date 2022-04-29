@@ -1,16 +1,71 @@
-# Getting Started with Mortgage Rate Calculator
+# Mortgage Rate Calculator
+A Simple Mortgage Rate Calculator can be easily embedded onto external websites as a 3rd party plugin. It will be embedded without causing any conflict as `CSS Modules` is being used to avoid namespace collision for classes.
 
+The app is built with ReactJS with basic dependencies to keep it simple and light. Please refer to `package.json` that will list all dependencies of the app. `core-js` and `regenerator-runtime` are the biggest packages required to support IE. If the app doesn't need to support IE in the future, the packages can be removed, and the app can be lighter.
+
+The widget can be placed at any location within the HTML document. All you have to do is place "\<div id="zuvafetest">\<div>" where the widget needs to be and import required CSS/js files. Please see the examples below. The required CSS/js files can be extracted using the `npm run widget-build` script described in the below section.
+
+
+```
+<header>
+    ...
+    <link href="./main.css" rel="stylesheet">
+    ...
+</header>
+
+<body>
+    <div id="zuvafetest">
+        <!-- Widget will be rendered here-->
+    <div>
+    
+    ...
+
+    <script defer="defer" src="./main.js"></script>
+</body>
+```
+
+```
+<header>
+    ...
+    <link href="./main.css" rel="stylesheet">
+    ...
+</header>
+
+<body>
+    <style>
+      .fixed-parent {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 400px;
+        height: 600px;
+      }
+    </style>
+
+    <div class="fixed-parent">
+        <div id="zuvafetest">
+            <!-- Widget will be rendered here-->
+        <div>
+    </div>
+
+    ...
+
+    <script defer="defer" src="./main.js"></script>
+</body>
+```
+
+## Respnsive UI
+The App is designed to adapt to any possible screen size to make the UI fully responsive. As a widget, it will be fully responsive to perfectly fit into its parent element.
+
+## Browser Support
+The App supports the latest, stable release of all browsers. You won't need to provide any JavaScript polyfills for IE11 as it is already included as a part of the build.
 
 ## Available Scripts
-
 In the project directory, you can run:
 
 ### `npm start`
-Runs the app in the development mode.\
+Runs the widget in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
 ### `npm test`
 Launches the test runner in the interactive watch mode.
@@ -19,19 +74,7 @@ Launches the test runner in the interactive watch mode.
 Launches the test runner with test coverage in the interactive watch mode.
 
 ### `npm run build`
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the standalone app for production to the `build` folder.\
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### `npm run widget-build`
+Builds the required js/css files which requires for embedding the app as a widget for production. You will require to extract `/static/css/main.css` and `/static/js/main.js` from `build` folder.

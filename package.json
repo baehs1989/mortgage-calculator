@@ -3,21 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/polyfill": "^7.12.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
+    "core-js": "^3.22.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
+    "regenerator-runtime": "^0.13.9",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-app-rewired build",
+    "widget-build": "react-app-rewired build && npm run build-rename",
     "test": "react-scripts test --watchAll",
     "ctest": "npm test -- --coverage --watchAll",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-rename": "npm run build-rename-js && npm run build-rename-css",
+    "build-rename-js": "renamer --find '/main\\.[^\\.]+\\.js/' --replace 'main.js' build/static/js/*.js",
+    "build-rename-css": "renamer --find '/main\\.[^\\.]+\\.css/' --replace 'main.css' build/static/css/*.css"
   },
   "eslintConfig": {
     "extends": [
@@ -36,5 +41,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-plugin-react-remove-properties": "^0.3.0",
+    "customize-cra": "^1.0.0",
+    "react-app-rewired": "^2.2.1",
+    "renamer": "^4.0.0"
   }
 }
