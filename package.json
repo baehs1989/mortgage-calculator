@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
@@ -27,7 +28,7 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all"
+      "ie >= 9"
     ],
     "development": [
       "last 1 chrome version",

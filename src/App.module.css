@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+.OuterDiv, .OuterDiv * {
+    font-family: 'Roboto Condensed', sans-serif;
+    box-sizing: border-box;
+}
+
+.OuterDiv{
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.OuterDiv.s{
+    font-size: 12px !important;
+}
+
+.OuterDiv.m{
+    font-size: 15px !important;
+    /* padding: 10px 20px; */
+}
+
+.OuterDiv.l{
+    font-size: 17px !important;
+}
+
+/* @media screen and (min-width:300px) {
+    .OuterDiv{
+        font-size: 12px !important;
+        padding: 10px 20px;
+    }
+}
+
+@media screen and (min-width:600px) {
+    .OuterDiv{
+        font-size: 17px !important;
+        padding: 10px 20px;
+    }
+} */
+
+.InnerDiv{
+    overflow: auto;
+    padding: 5px;
+}
+
+.App{
+    width:100%;
+    background-color: white;
+    border: 1px solid grey;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.App > div{
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid grey;
+}
+
+.App.s > div{
+    flex-direction: column;
+    padding: 5px;
+    /* ie11 support */
+    min-height: 95px;
+}
+
+.App.s > div:first-child{
+    /* ie11 support */
+    min-height:140px;
+}
+
+.App.s > div:nth-child(2){
+        /* ie11 support */
+    min-height:170px;
+}
+
+.App > div:last-child{
+    border-bottom: none;
+}
+
+.App > div > div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.Block_Div{
+    display: block !important;
+}
+
+
+.Flex_Zero{
+    flex:0 !important;
+}
+
+.Icon.s{
+    display:none !important;
+}
+
+.Justify_Center{
+    display: flex;
+    justify-content: center;
+}
+
+.Colored_Section{
+    background-color: #f5f7f7;
+}
+
+.Color1 *, .Color1 input {
+    color: #0976b5;
+ }
+
+.Color2 *, .Color2 input {
+   color: #08a4ff;
+}
+
+.MortgagePayment{
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+}
+
+.MortgagePayment > div{
+    display: flex;
+    width: 100%;
+    align-self: flex-end;
+}
+
+.MortgagePayment > div:nth-child(2){
+    display: flex;
+    width: 100%;
+    align-self: flex-start;
+}
