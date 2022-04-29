@@ -55,7 +55,7 @@ The widget can be placed at any location within the HTML document. All you have 
 ```
 
 ## Respnsive UI
-The App is designed to adapt to any possible screen size to make the UI fully responsive. As a widget, it will be fully responsive to perfectly fit into its parent element.
+The App is designed to adapt to any possible screen size to make the UI fully responsive. As a widget, it will be fully responsive to perfectly fit into its parent element. As the app requires to support for IE, ResizeObserver cannot be used. Instead, a custom hook has been created to substitute ResizeObserver.
 
 ## Browser Support
 The App supports the latest, stable release of all browsers. You won't need to provide any JavaScript polyfills for IE11 as it is already included as a part of the build.
@@ -80,5 +80,10 @@ Builds the standalone app for production to the `build` folder.
 ### `npm run widget-build`
 Builds the required js/css files which requires for embedding the app as a widget for production. You will require to extract `/static/css/zuvafetest-main.css` and `/static/js/zuvafetest-main.js` from `build` folder.
 
-## TODO
+## Instructions
+1. Clone this repository and install the dependencies using npm
+2. Run `npm start` and open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. To extract files for embedding the app as a widget, please run `npm run widget-build` and find the required files from `build` folder.
+
+## Todo
 - Fix a bug related to running the app locally on IE
