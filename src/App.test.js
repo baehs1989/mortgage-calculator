@@ -84,6 +84,17 @@ describe("Rendering App Component", ()=>{
             fireEvent.change(input_asking_price, {target:{value:400000}})
             fireEvent.blur(input_asking_price)
 
+            //update asking_price value = 0
+            fireEvent.change(input_asking_price, {target:{value:0}})
+            fireEvent.blur(input_asking_price)
+            expect(down_payment.value).toBe("$0")
+            expect(mortgage_required).toHaveTextContent("$0")
+            expect(mortgage_payment).toHaveTextContent("$0")
+            expect(mortgage_required).toHaveTextContent("$0")
+
+            fireEvent.change(input_asking_price, {target:{value:400000}})
+            fireEvent.blur(input_asking_price)
+
             //update down payment %
             fireEvent.change(down_payment_percentage, {target:{value:'10%'}})
             fireEvent.blur(down_payment_percentage)

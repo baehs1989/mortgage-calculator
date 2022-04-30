@@ -70,10 +70,11 @@ const reducer = (state, action) => {
       };
 
     case "downPayment":
+      let downPercentage = (action.value / state.askingPrice) * 100
       return {
         ...state,
         [action.type]: action.value,
-        downPercentage: (action.value / state.askingPrice) * 100,
+        downPercentage: downPercentage?downPercentage:0,
       };
 
     case "askingPrice":
@@ -111,8 +112,8 @@ function App() {
         (principal * percentageRate) /
         (1 - Math.pow(1 + percentageRate, lengthOfLoan * -1));
 
-      setMortgageRequired(mortgage_required);
-      setMonthlyPayment(monthlyPayment);
+      setMortgageRequired(mortgage_required?mortgage_required:0);
+      setMonthlyPayment(monthlyPayment?monthlyPayment:0);
     }
   }, [data]);
 
