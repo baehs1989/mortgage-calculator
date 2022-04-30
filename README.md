@@ -81,7 +81,8 @@ Builds the standalone app for production to the `build` folder.
 Builds the required js/css files which requires for embedding the app as a widget for production. You will require to extract `/static/css/zuvafetest-main.css` and `/static/js/zuvafetest-main.js` from `build` folder.
 
 ## Instructions
-1. Clone this repository and install the dependencies using npm
+1. Clone this repository.
+2. There will be `package_window.json` and `package_mac.json` in the root directory. Please choose one file and rename it as `package.json` and install the dependencies using npm.
 2. Run `npm start` and open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 3. To extract files for embedding the app as a widget, please run `npm run widget-build` and find the required files from `build` folder.
 
